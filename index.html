@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" class="dark transition-colors duration-300">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kedar Shinde | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #f8fafc;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    #game-of-life {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      opacity: 0.15;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-[#1e3a5f] dark:bg-[#0f172a] dark:text-gray-100 transition-colors duration-300">
+  <canvas id="game-of-life"></canvas>
+
+  <div
+    class="sticky top-0 z-50 bg-[#f8fafc] dark:bg-[#1e293b] shadow-sm backdrop-blur-sm transition-colors duration-300">
+    <nav class="flex items-center justify-between max-w-6xl mx-auto py-4 px-4">
+      <div class="text-sky-600 dark:text-sky-300 font-bold text-lg">
+        <a href="https://github.com/ked1108">@ked1108
+      </div>
+      <div class="space-x-4 flex items-center">
+        <a href="#about" class="text-sky-500 dark:text-sky-300 hover:underline font-semibold">About</a>
+        <a href="#projects" class="text-sky-500 dark:text-sky-300 hover:underline font-semibold">Projects</a>
+        <a href="#contact" class="text-sky-500 dark:text-sky-300 hover:underline font-semibold">Contact</a>
+        <button onclick="toggleDarkMode()" id="theme-toggle" class="ml-4 text-xl">🌙</button>
+      </div>
+    </nav>
+  </div>
+  <section id="profile-about-projects" class="min-h-screen flex items-center justify-center px-6 py-20 sm:px-10 lg:px-20">
+    <div class="max-w-5xl w-full bg-white/70 dark:bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-2xl shadow-lg space-y-12">
+  <!-- <section id="profile-about-projects" class="min-h-screen flex items-center justify-center px-4">
+    <div class="max-w-5xl w-full bg-white/70 dark:bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg space-y-10"> -->
+      <!-- <div class="flex flex-col items-center md:flex-row md:gap-6">
+        <img src="pfp.jpg" alt="Profile Image"
+          class="w-36 h-36 rounded-full object-cover border-4 border-sky-300 shadow-md" />
+        <div class="text-center md:text-left mt-4 md:mt-0">
+          <h1 class="text-2xl font-bold">Kedar Shinde</h1>
+          <p class="text-base text-sky-600 dark:text-sky-400">Software Engineer</p>
+        </div>
+      </div> -->
+
+      <div class="flex flex-col items-center md:flex-row md:gap-6">
+        <img src="pfp.jpg" alt="Profile Image"
+          class="w-36 h-36 rounded-full object-cover border-4 border-sky-300 shadow-md" />
+        <div class="text-center md:text-left mt-4 md:mt-0">
+          <h1 class="text-2xl font-bold">Kedar Shinde</h1>
+          <p class="text-base text-sky-600 dark:text-sky-400">Software Engineer</p>
+          <div class="flex justify-center md:justify-start mt-2 space-x-4">
+            <a href="https://github.com/ked1108" target="_blank" aria-label="GitHub">
+              <svg class="w-6 h-6 text-gray-700 dark:text-gray-300 hover:text-sky-500 transition" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577v-2.233c-3.338.726-4.033-1.61-4.033-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.085 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.776.42-1.305.762-1.604-2.665-.3-5.467-1.334-5.467-5.933 0-1.312.47-2.384 1.236-3.222-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 0 1 3.003-.404c1.018.005 2.042.137 3.003.404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.243 2.873.12 3.176.77.838 1.235 1.91 1.235 3.222 0 4.61-2.807 5.63-5.48 5.922.432.372.816 1.102.816 2.222v3.293c0 .32.216.694.825.576C20.565 21.796 24 17.303 24 12c0-6.627-5.373-12-12-12z" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/kedar-shinde-162aa2244/" target="_blank" aria-label="LinkedIn">
+              <svg class="w-6 h-6 text-gray-700 dark:text-gray-300 hover:text-sky-500 transition" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.25 8.5H4.75V24H.25V8.5zM8.5 8.5h4.5v2.12h.06c.63-1.2 2.18-2.46 4.5-2.46 4.8 0 5.68 3.15 5.68 7.23V24h-4.5v-6.72c0-1.6-.03-3.66-2.23-3.66-2.23 0-2.57 1.74-2.57 3.53V24h-4.5V8.5z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+
+      <div id="about">
+        <h2 class="text-2xl font-semibold border-b-2 border-sky-300 pb-1 mb-4">About</h2>
+        <p class="text-gray-700 dark:text-gray-300">
+          Hi! I'm Kedar Shinde, a third-year Computer Science undergrad. I am passionate about Compilers, Robotics, AI
+          research, and Computer Vision and Cellular Automatas, constantly diving into new projects and ideas. I love
+          exploring new programming languages, especially the functional ones. I love figuring out how they offer fresh
+          perspectives on problem-solving. I'm always eager to learn, experiment, and challenge myself with new
+          technologies.
+        </p>
+      </div>
+
+      <div id="experience">
+        <h2 class="text-2xl font-semibold border-b-2 border-sky-300 pb-1 mb-4">Experience</h2>
+        <div class="space-y-4">
+          <!-- Example 1 -->
+          <div class="bg-white/90 dark:bg-white/5 p-4 rounded-lg shadow border border-sky-100 dark:border-sky-700">
+            <h3 class="text-lg font-semibold text-sky-700 dark:text-sky-300">Research Intern – Samsung PRISM, Samsung R&D Bangalore</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 italic">Jul 2023 – Dec 2023</p>
+            <p class="mt-2 text-gray-700 dark:text-gray-300">
+              Worked on <strong>Speech Enhancement using Deep Learning</strong>, where I developed a novel architecture using Residual Connections and Complex STFT Masking. Conducted rigorous experiments on noisy datasets and benchmarked models on objective metrics like PESQ and SI-SDR.
+            </p>
+          </div>
+      
+          <!-- Example 2
+          <div class="bg-white/90 dark:bg-white/5 p-4 rounded-lg shadow border border-sky-100 dark:border-sky-700">
+            <h3 class="text-lg font-semibold text-sky-700 dark:text-sky-300">A</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 italic">Apr 2023 – Jun 2023</p>
+            <p class="mt-2 text-gray-700 dark:text-gray-300">
+              Led the development of <strong>SafeTV</strong>, a surveillance solution that detects criminal activity in real-time at railway stations using YOLOv8. Built the training pipeline, annotated a custom dataset, and deployed an interactive dashboard.
+            </p>
+          </div> -->
+        </div>
+      </div>
+      
+
+      <div id="projects">
+        <h2 class="text-2xl font-semibold border-b-2 border-sky-300 pb-1 mb-4">Projects</h2>
+        <div class="space-y-6">
+          <div class="p-4 rounded-lg border border-sky-200 dark:border-sky-700 bg-white/90 dark:bg-white/5 shadow">
+            <h3 class="text-xl font-semibold">2D Cellular Automata Simulation</h3>
+            <p>This project is built using <a href="https://www.raylib.com" class="bg-sky-500 dark:bg-sky-900 underline">Raylib</a> and
+              C++ allows you to run interactive simulation of 2D cellular automata, offering an intuitive GUI for
+              creating and evolving grid-based automata systems. It allows users to draw custom patterns, adjust the
+              grid size, and step through simulations with real-time updates. The tool has aided my research on cellular
+              automatas and has been a real life saver.<br>
+              <a href="https://github.com/ked1108/2d-cellular-automata-simulation" target="_blank"
+                class="text-sky-600 dark:text-sky-400 hover:underline">View on GitHub</a>
+            </p>
+          </div>
+          <div
+            class="p-4 rounded-lg border border-sky-200 dark:border-sky-700 bg-white/90 dark:bg-white/5 shadow text-sm">
+            <h3 class="text-xl font-semibold">N-Body Simulation in Rust (RK4)</h3>
+            <p>This Rust-based project simulates the N-body gravitational problem using the fourth-order Runge-Kutta
+              (RK4) method for numerical integration. It efficiently models the dynamics of multiple interacting
+              particles under Newtonian gravity and emphasizes performance, and precision.<br>
+              <a href="https://github.com/ked1108/nbody" target="_blank"
+                class="text-sky-600 dark:text-sky-400 hover:underline">View on GitHub</a>
+            </p>
+          </div>
+
+          <div
+            class="p-4 rounded-lg border border-sky-200 dark:border-sky-700 bg-white/90 dark:bg-white/5 shadow text-sm">
+            <h3 class="text-xl font-semibold">SafeTV</h3>
+            <p>SafeTV is a web application developed by my hackathon team, "Team Tacos" for the Smart India Hackathon
+              selection round. It employs machine learning to detect criminal activities at railway stations using the
+              YOLOv8 model trained on a custom dataset. The application aims to enhance security by providing real-time
+              monitoring and alerts for suspicious behaviors in railway environments.<br>
+              <a href="https://github.com/ked1108/SafeTV" target="_blank"
+                class="text-sky-600 dark:text-sky-400 hover:underline">View on GitHub</a>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <footer
+    class="bg-white/70 dark:bg-white/10 backdrop-blur-md text-center text-gray-700 dark:text-gray-300 text-sm py-10 px-4">
+    <div class="max-w-4xl mx-auto space-y-4">
+      <h2 class="text-2xl font-semibold border-b-2 border-sky-300 pb-1">Contact</h2>
+      <p>Email: <a href="mailto:kedarshinde1108@gmail.com"
+          class="text-sky-600 dark:text-sky-400 hover:underline">kedarshinde1108@gmail.com</a></p>
+      <p></p>
+      <p>&copy; 2025 Kedar Shinde. Hosted on GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      const html = document.documentElement;
+      const button = document.getElementById('theme-toggle');
+      html.classList.toggle('dark');
+      const isDark = html.classList.contains('dark');
+      button.textContent = isDark ? '🌙' : '☀️';
+    }
+
+    const canvas = document.getElementById('game-of-life');
+    const ctx = canvas.getContext('2d');
+    const cellSize = 10;
+    let cols, rows, grid;
+
+    function initRandomGrid(cols, rows) {
+      return new Array(cols).fill(null).map(() => new Array(rows).fill(0).map(() => Math.round(Math.random())));
+    }
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      cols = Math.floor(canvas.width / cellSize);
+      rows = Math.floor(canvas.height / cellSize);
+      grid = initRandomGrid(cols, rows);
+    }
+
+    function drawGrid() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let x = 0; x < cols; x++) {
+        for (let y = 0; y < rows; y++) {
+          if (grid[x][y]) {
+            ctx.fillStyle = '#0ea5e9';
+            ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+          }
+        }
+      }
+    }
+
+    function updateGrid() {
+      const nextGrid = grid.map(arr => [...arr]);
+      for (let x = 0; x < cols; x++) {
+        for (let y = 0; y < rows; y++) {
+          let neighbors = 0;
+          for (let i = -1; i <= 1; i++) {
+            for (let j = -1; j <= 1; j++) {
+              if (i === 0 && j === 0) continue;
+              const col = (x + i + cols) % cols;
+              const row = (y + j + rows) % rows;
+              neighbors += grid[col][row];
+            }
+          }
+          if (grid[x][y] === 1 && (neighbors < 2 || neighbors > 3)) nextGrid[x][y] = 0;
+          if (grid[x][y] === 0 && neighbors === 3) nextGrid[x][y] = 1;
+        }
+      }
+      grid = nextGrid;
+    }
+
+    function animate() {
+      drawGrid();
+      updateGrid();
+      setTimeout(() => requestAnimationFrame(animate), 250);
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    animate();
+  </script>
+</body>
+
+</html>
